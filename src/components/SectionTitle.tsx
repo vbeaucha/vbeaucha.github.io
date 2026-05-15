@@ -1,12 +1,22 @@
+import { motion } from 'framer-motion'
 import type { ReactNode } from 'react'
 
-export function SectionTitle({ children }: { children: ReactNode }) {
+interface Props {
+  children: ReactNode
+  subtitle?: string
+}
+
+export function SectionTitle({ children, subtitle }: Props) {
   return (
-    <div className="mb-5 flex items-center gap-3">
-      <div className="w-1 h-6 rounded-full bg-accent flex-shrink-0" />
-      <h2 className="text-base font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400">
-        {children}
-      </h2>
-    </div>
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+      className="text-center mb-16"
+    >
+      <h2 className="text-4xl font-bold mb-4 text-gray-900 dark:text-white">{children}</h2>
+      {subtitle && <p className="text-xl text-gray-600 dark:text-gray-400">{subtitle}</p>}
+    </motion.div>
   )
 }

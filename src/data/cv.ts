@@ -38,7 +38,7 @@ export interface CVData {
   experiences: ExperienceEntry[]
   skills: SkillCategory[]
   education: { school: string; degree: string; specialization: string }
-  openSource: { project: string; description: string }[]
+  openSource: { project: string; description: string; url: string }[]
   tutorials: TutorialCard[]
 }
 
@@ -76,16 +76,6 @@ export const cv: CVData = {
       role: 'Embedded Engineer / DevOps',
       subContexts: [
         {
-          label: 'SpreadTheLive',
-          type: 'internal',
-          description: 'Live streaming platform — Kubernetes / OVHCloud',
-          bullets: [
-            'Cloud Infrastructure: Kubernetes on OVHCloud; Terraform, Helm.',
-            'SRE: SLI/SLO management, Datadog monitoring, DRP strategy.',
-            'Mentoring: Guided 2 interns'
-          ],
-        },
-        {
           label: 'Store Management SaaS',
           type: 'consulting',
           description: 'GCP / GKE — mission de consulting',
@@ -95,6 +85,16 @@ export const cv: CVData = {
             'CI/CD: GitHub Actions, automated deployments and DevEx tooling.',
             'SRE: SLI/SLO management, Datadog monitoring, DRP strategy.',
             'Mentoring: 4 dev teams (5 each) on DevOps best practices.',
+          ],
+        },
+        {
+          label: 'SpreadTheLive',
+          type: 'internal',
+          description: 'Live streaming platform — Kubernetes / OVHCloud',
+          bullets: [
+            'Cloud Infrastructure: Kubernetes on OVHCloud; Terraform, Helm.',
+            'SRE: SLI/SLO management, Datadog monitoring, DRP strategy.',
+            'Mentoring: Guided 2 interns'
           ],
         },
       ],
@@ -113,7 +113,7 @@ export const cv: CVData = {
     },
   ],
   skills: [
-    { label: 'Languages', items: ['Go', 'Rust', 'C++', 'C#'] },
+    { label: 'Languages', items: ['Go', 'Rust','C++'] },
     { label: 'Database', items: ['PostgreSQL', 'Debezium', 'MongoDB'] },
     { label: 'Event-Driven', items: ['Kafka', 'NATS'] },
     { label: 'Containers', items: ['Docker', 'containerd', 'Podman', 'Kubernetes', 'Helm', 'Karpenter'] },
@@ -128,9 +128,21 @@ export const cv: CVData = {
     specialization: 'Microelectronics & Automation',
   },
   openSource: [
-    { project: 'Crunchy-data', description: 'PostgreSQL Operator for Kubernetes' },
-    { project: 'Kubernetes', description: 'Core project contributions' },
-    { project: 'ZomboDB', description: 'PostgreSQL Archiver extension' },
+    {
+      project: 'Crunchy-data',
+      description: 'PostgreSQL Operator for Kubernetes',
+      url: 'https://github.com/CrunchyData/postgres-operator',
+    },
+    {
+      project: 'Kubernetes',
+      description: 'Kubelet volume metrics exporter',
+      url: 'https://github.com/vbeaucha/kubelet-volume-stats-exporter',
+    },
+    {
+      project: 'ZomboDB',
+      description: 'PostgreSQL extension — PG16 & PG17 support',
+      url: 'https://github.com/vbeaucha/zombodb/tree/vbeaucha/support-pg16-pg17',
+    },
   ],
   tutorials: [
     {

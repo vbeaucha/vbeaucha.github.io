@@ -1,20 +1,36 @@
+import { motion } from 'framer-motion'
+import { ExternalLink } from 'lucide-react'
 import { cv } from '../../data/cv'
 import { SectionTitle } from '../SectionTitle'
 
 export function OpenSource() {
   return (
-    <section className="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 p-6">
-      <SectionTitle>Open Source</SectionTitle>
-      <div className="flex flex-wrap gap-3">
-        {cv.openSource.map((item) => (
-          <div
-            key={item.project}
-            className="flex-1 min-w-[200px] p-4 rounded-xl bg-slate-50 dark:bg-slate-700/50 border border-slate-200 dark:border-slate-600"
-          >
-            <p className="font-semibold text-sm text-slate-800 dark:text-slate-100">{item.project}</p>
-            <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">{item.description}</p>
-          </div>
-        ))}
+    <section className="py-20 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
+        <SectionTitle subtitle="Contributions to the open-source ecosystem">Open Source</SectionTitle>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
+          {cv.openSource.map((item, index) => (
+            <motion.a
+              key={item.project}
+              href={item.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="group block bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5 hover:shadow-md dark:hover:shadow-gray-900/50 hover:border-accent dark:hover:border-accent transition-all"
+            >
+              <div className="flex items-start justify-between mb-2">
+                <p className="font-semibold text-gray-900 dark:text-white group-hover:text-accent transition-colors">
+                  {item.project}
+                </p>
+                <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-accent transition-colors flex-shrink-0 mt-0.5" />
+              </div>
+              <p className="text-sm text-gray-600 dark:text-gray-400">{item.description}</p>
+            </motion.a>
+          ))}
+        </div>
       </div>
     </section>
   )
