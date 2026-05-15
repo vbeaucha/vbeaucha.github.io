@@ -13,18 +13,27 @@ export function TutorialPage() {
   const [status, setStatus] = useState<Status>('loading')
 
   useEffect(() => {
+    const controller = new AbortController()
     setStatus('loading')
-    const url = getRawUrl(tutorialId, filePath.endsWith('.md') ? filePath : filePath + '.md')
-    fetch(url)
-      .then((res) => {
-        if (!res.ok) throw new Error(`HTTP ${res.status}`)
-        return res.text()
-      })
-      .then((text) => {
-        setContent(text)
-        setStatus('success')
-      })
-      .catch(() => setStatus('error'))
+    setContent('')
+    try {
+      const url = getRawUrl(tutorialId, filePath.endsWith('.md') ? filePath : filePath + '.md')
+      fetch(url, { signal: controller.signal })
+        .then((res) => {
+          if (!res.ok) throw new Error(`HTTP ${res.status}`)
+          return res.text()
+        })
+        .then((text) => {
+          setContent(text)
+          setStatus('success')
+        })
+        .catch((err) => {
+          if (err.name !== 'AbortError') setStatus('error')
+        })
+    } catch {
+      setStatus('error')
+    }
+    return () => controller.abort()
   }, [tutorialId, filePath])
 
   return (
