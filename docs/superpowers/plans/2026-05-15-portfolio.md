@@ -900,7 +900,7 @@ export function TutorialPage() {
         to="/"
         className="text-accent hover:underline text-sm mb-6 inline-block"
       >
-        ← Back to portfolio
+        ← Back to home
       </Link>
 
       {status === 'loading' && (
