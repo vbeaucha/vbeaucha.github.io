@@ -59,7 +59,8 @@ export function TutorialPage() {
             remarkPlugins={[remarkGfm]}
             components={{
               a({ href = '', children, ...props }) {
-                const internal = resolveMdLink(href, tutorialId)
+                const currentFile = filePath.endsWith('.md') ? filePath : filePath + '.md'
+                const internal = resolveMdLink(href, tutorialId, currentFile)
                 if (internal) {
                   return (
                     <Link to={internal} className="text-accent hover:underline">

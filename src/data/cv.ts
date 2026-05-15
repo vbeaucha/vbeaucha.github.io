@@ -30,7 +30,6 @@ export interface CVData {
   title: string
   contact: {
     email: string
-    phone: string
     location: string
     linkedin: string
     github: string
@@ -48,7 +47,6 @@ export const cv: CVData = {
   title: 'Lead DevOps / SRE',
   contact: {
     email: 'vbeaucha77@gmail.com',
-    phone: '+33 6 47 60 15 79',
     location: 'Croix, France',
     linkedin: 'valentin-beauchamp',
     github: 'vbeaucha',
@@ -62,12 +60,12 @@ export const cv: CVData = {
       role: 'Lead DevOps / Infrastructure',
       context: 'Job search platform — 18 microservices, 8M+ daily requests',
       bullets: [
-        'Infra & Networking: Technical lead for Kubernetes on AWS (2 clusters, 10–20 nodes) with Karpenter auto-scaling, VPC design, AWS ALB and Traefik in-cluster routing. Scaled from 20K applications/month to 50K/day while capping costs at $4k/month.',
+        'Infra & Networking: Technical lead for Kubernetes on AWS (2 clusters, 10–20 nodes) with Karpenter auto-scaling, VPC design, AWS NLB and Traefik in-cluster routing. Scaled from 20K applications/month to 50K/day while capping costs at $4k/month.',
         'SRE & Reliability: 99.9% SLA on 18 microservices — 8M+ requests/day and 70.9M PostgreSQL queries/day on a multi-AZ setup with cross-region DRP. DORA metrics: daily deployments, <15% change failure rate, post-mortem driven incident culture.',
         'IaC & GitOps: Full automation via OpenTofu/Atlantis, ArgoCD, GitHub Actions and CircleCI.',
         'Data & Event-Driven: Self-managed PostgreSQL cluster with Patroni HA on Kubernetes; authored Rust extensions handling S3 archive reads, Elasticsearch sync indexing and parallel-safe function execution. Kafka + Debezium CDC pipelines.',
         'Security & Compliance: ISO 27001 and GDPR-compliant infrastructure. Secret management via HashiCorp Vault and Vaultwarden.',
-        'Observability: Prometheus, Grafana, OpenObserve; Velero backup strategy.',
+        'Observability: Prometheus, Grafana, OpenTelemetry, Telegraf, OpenObserve; Velero backup strategy.',
         'Internal Go SDK: Co-designed a full Go SDK covering database connection management and OpenTelemetry-native metrics, traces and log shipping.',
         'Platform & Leadership: Co-defined the DevOps platform vision with the CTO. Coached a team of 4 developers on DevOps practices.',
       ],
@@ -83,9 +81,8 @@ export const cv: CVData = {
           description: 'Live streaming platform — Kubernetes / OVHCloud',
           bullets: [
             'Cloud Infrastructure: Kubernetes on OVHCloud; Terraform, Helm.',
-            'Data: PostgreSQL (Aiven) & MongoDB (Atlas) administration.',
-            'CI/CD: GitHub Actions, automated deployments and DevEx tooling.',
-            'SRE: SLA/SLO management, Datadog monitoring, DRP strategy.',
+            'SRE: SLI/SLO management, Datadog monitoring, DRP strategy.',
+            'Mentoring: Guided 2 interns'
           ],
         },
         {
@@ -93,8 +90,11 @@ export const cv: CVData = {
           type: 'consulting',
           description: 'GCP / GKE — mission de consulting',
           bullets: [
-            'Cloud Infrastructure: Migration to GCP/GKE; Terraform, Helm.',
-            'Mentoring: Guided 2 interns and 4 dev teams (5 each) on DevOps best practices.',
+            'Cloud Infrastructure: GCP/GKE',
+            'Data: PostgreSQL (Aiven) & MongoDB (Atlas) administration.',
+            'CI/CD: GitHub Actions, automated deployments and DevEx tooling.',
+            'SRE: SLI/SLO management, Datadog monitoring, DRP strategy.',
+            'Mentoring: 4 dev teams (5 each) on DevOps best practices.',
           ],
         },
       ],
@@ -118,7 +118,7 @@ export const cv: CVData = {
     { label: 'Event-Driven', items: ['Kafka', 'NATS'] },
     { label: 'Containers', items: ['Docker', 'containerd', 'Podman', 'Kubernetes', 'Helm', 'Karpenter'] },
     { label: 'IaC', items: ['Terraform', 'OpenTofu', 'ArgoCD', 'Atlantis'] },
-    { label: 'CI/CD', items: ['GitHub Actions', 'CircleCI', 'ARC'] },
+    { label: 'CI/CD', items: ['GitHub Actions', 'CircleCI'] },
     { label: 'Cloud', items: ['AWS', 'GCP'] },
     { label: 'Observability', items: ['Prometheus', 'Grafana', 'OpenObserve', 'Datadog', 'OpenTelemetry', 'Telegraf'] },
   ],

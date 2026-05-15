@@ -3,9 +3,9 @@ import { SectionTitle } from '../SectionTitle'
 
 export function About() {
   return (
-    <section className="mb-8">
+    <section className="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 p-6">
       <SectionTitle>Profile</SectionTitle>
-      <p className="text-sm leading-relaxed text-gray-700 dark:text-slate-300">{cv.about}</p>
+      <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-300">{cv.about}</p>
     </section>
   )
 }

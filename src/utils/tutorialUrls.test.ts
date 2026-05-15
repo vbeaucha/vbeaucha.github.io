@@ -18,9 +18,21 @@ test('getRawUrl pour vim readme', () => {
   )
 })
 
-test('resolveMdLink convertit un lien relatif .md en route interne', () => {
-  expect(resolveMdLink('docs/01-configuring-git.md', 'git')).toBe(
+test('resolveMdLink depuis readme : lien vers docs/', () => {
+  expect(resolveMdLink('docs/01-configuring-git.md', 'git', 'readme.md')).toBe(
     '/tutorials/git/docs/01-configuring-git'
+  )
+})
+
+test('resolveMdLink depuis un chapitre : lien vers chapitre sibling', () => {
+  expect(resolveMdLink('02-first-commit.md', 'git', 'docs/01-configuring-git.md')).toBe(
+    '/tutorials/git/docs/02-first-commit'
+  )
+})
+
+test('resolveMdLink depuis un chapitre : lien ../readme.md revient à la table des matières', () => {
+  expect(resolveMdLink('../readme.md', 'git', 'docs/16-conclusion.md')).toBe(
+    '/tutorials/git'
   )
 })
 

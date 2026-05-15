@@ -11,8 +11,19 @@ export function getRawUrl(tutorialId: string, path: string): string {
   return `${RAW}/${repo.owner}/${repo.repo}/${repo.branch}/${path}`
 }
 
-export function resolveMdLink(href: string, tutorialId: string): string | null {
+// Resolves a relative .md link to an internal React Router route.
+// currentPath is the path of the file being rendered (e.g. 'readme.md' or 'docs/01-configuring-git.md').
+// This handles sibling links (02-next.md from docs/) and parent links (../readme.md).
+export function resolveMdLink(href: string, tutorialId: string, currentPath = 'readme.md'): string | null {
   if (href.startsWith('http') || !href.endsWith('.md')) return null
-  const path = href.replace(/\.md$/, '')
+
+  const normalizedCurrent = currentPath.endsWith('.md') ? currentPath : currentPath + '.md'
+  const base = new URL(`https://x/${normalizedCurrent}`)
+  const resolved = new URL(href, base)
+  const resolvedPath = resolved.pathname.slice(1)
+
+  if (resolvedPath === 'readme.md') return `/tutorials/${tutorialId}`
+
+  const path = resolvedPath.replace(/\.md$/, '')
   return `/tutorials/${tutorialId}/${path}`
 }
