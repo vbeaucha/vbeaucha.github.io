@@ -6,7 +6,13 @@ import { SectionTitle } from '../SectionTitle'
 export function OpenSource() {
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
+      <motion.div
+        className="max-w-7xl mx-auto"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.4 }}
+      >
         <SectionTitle subtitle="Contributions to the open-source ecosystem">Open Source</SectionTitle>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
           {cv.openSource.map((item, index) => (
@@ -15,8 +21,8 @@ export function OpenSource() {
               href={item.url}
               target="_blank"
               rel="noopener noreferrer"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ y: 20 }}
+              whileInView={{ y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="group block bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5 hover:shadow-md dark:hover:shadow-gray-900/50 hover:border-accent dark:hover:border-accent transition-all"
@@ -31,7 +37,7 @@ export function OpenSource() {
             </motion.a>
           ))}
         </div>
-      </div>
+      </motion.div>
     </section>
   )
 }

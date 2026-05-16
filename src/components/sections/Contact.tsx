@@ -35,12 +35,18 @@ export function Contact() {
 
   return (
     <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
+      <motion.div
+        className="max-w-7xl mx-auto"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.4 }}
+      >
         <SectionTitle subtitle="Let's connect and talk about your next project">Contact</SectionTitle>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 20 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
           className="max-w-2xl mx-auto flex items-center gap-8"
@@ -69,8 +75,8 @@ export function Contact() {
               return (
                 <motion.div
                   key={item.label}
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  initial={{ y: 10 }}
+                  whileInView={{ y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: index * 0.08 }}
                 >
@@ -86,7 +92,7 @@ export function Contact() {
             })}
           </div>
         </motion.div>
-      </div>
+      </motion.div>
     </section>
   )
 }

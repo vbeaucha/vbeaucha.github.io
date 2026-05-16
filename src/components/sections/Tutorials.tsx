@@ -13,7 +13,13 @@ const gradients: Record<string, string> = {
 export function Tutorials() {
   return (
     <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-800">
-      <div className="max-w-7xl mx-auto">
+      <motion.div
+        className="max-w-7xl mx-auto"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.4 }}
+      >
         <SectionTitle subtitle="Guides I've written to share my knowledge">Tutorials</SectionTitle>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
           {cv.tutorials.map((t, index) => {
@@ -22,8 +28,8 @@ export function Tutorials() {
             return (
               <motion.div
                 key={t.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ y: 20 }}
+                whileInView={{ y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="h-full"
@@ -55,7 +61,7 @@ export function Tutorials() {
             )
           })}
         </div>
-      </div>
+      </motion.div>
     </section>
   )
 }

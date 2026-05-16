@@ -41,7 +41,13 @@ const fallbackStyle: CategoryStyle = {
 export function Skills() {
   return (
     <section id="skills" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-800">
-      <div className="max-w-7xl mx-auto">
+      <motion.div
+        className="max-w-7xl mx-auto"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.4 }}
+      >
         <SectionTitle subtitle="Technologies and tools I work with">Skills</SectionTitle>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -51,8 +57,8 @@ export function Skills() {
             return (
               <motion.div
                 key={cat.label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ y: 20 }}
+                whileInView={{ y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.07 }}
                 className={`p-6 rounded-xl border-2 transition-all ${style.bg} ${style.border}`}
@@ -76,7 +82,7 @@ export function Skills() {
             )
           })}
         </div>
-      </div>
+      </motion.div>
     </section>
   )
 }

@@ -6,7 +6,13 @@ import { SectionTitle } from '../SectionTitle'
 export function Experience() {
   return (
     <section id="experience" className="py-20 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
+      <motion.div
+        className="max-w-7xl mx-auto"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.4 }}
+      >
         <SectionTitle subtitle="My journey in the DevOps world">Experience</SectionTitle>
 
         <div className="relative">
@@ -16,8 +22,8 @@ export function Experience() {
             {cv.experiences.map((exp, index) => (
               <motion.div
                 key={exp.company}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ y: 10 }}
+                whileInView={{ y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="relative"
@@ -99,7 +105,7 @@ export function Experience() {
             ))}
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   )
 }
