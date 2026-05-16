@@ -1,12 +1,12 @@
-<?xml version="1.0" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"
- "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
-<svg version="1.0" xmlns="http://www.w3.org/2000/svg"
- width="1024.000000pt" height="1024.000000pt" viewBox="0 0 1024.000000 1024.000000"
- preserveAspectRatio="xMidYMid meet">
-
-<g transform="translate(0.000000,1024.000000) scale(0.100000,-0.100000)"
-fill="#2563EB" stroke="none">
+export function LogoIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 504 504"
+      className={className}
+      aria-hidden="true"
+    >
+      <g transform="translate(0,504) scale(0.05,-0.05)" fill="currentColor" stroke="none">
 <path d="M750 7673 c0 -9 123 -281 625 -1378 45 -99 247 -540 448 -980 201
 -440 443 -969 537 -1175 95 -206 205 -447 245 -535 78 -174 424 -927 539
 -1175 l72 -155 457 -3 458 -2 48 102 c71 152 316 666 415 872 47 98 86 180 86
@@ -39,4 +39,6 @@ m888 516 c125 -73 113 -266 -21 -334 -35 -18 -60 -20 -284 -20 l-245 0 0 191
 -26 -134 -70 -166 -62 -44 -106 -50 -377 -50 l-253 0 0 210 0 210 274 0 274 0
 53 -28z"/>
 </g>
-</svg>
+    </svg>
+  )
+}
