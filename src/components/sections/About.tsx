@@ -5,12 +5,18 @@ import { cv } from '../../data/cv'
 
 export function About() {
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center pt-16 px-4 sm:px-6 lg:px-8">
+    <motion.section
+      id="home"
+      className="min-h-screen flex items-center justify-center pt-16 px-4 sm:px-6 lg:px-8"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.4 }}
+    >
       <div className="max-w-7xl mx-auto w-full">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ x: -50 }}
+            animate={{ x: 0 }}
             transition={{ duration: 0.6 }}
           >
             <p className="text-accent text-sm font-bold uppercase tracking-widest mb-3">
@@ -57,8 +63,8 @@ export function About() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ x: 50 }}
+            animate={{ x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="hidden md:block"
           >
@@ -75,7 +81,6 @@ export function About() {
                     <p className="text-xs">✓ prod-eu-1 &nbsp;&nbsp;Ready</p>
                     <p className="text-xs">✓ prod-eu-2 &nbsp;&nbsp;Ready</p>
                     <p className="text-xs">✓ prod-eu-3 &nbsp;&nbsp;Ready</p>
-                    {/* <p className="text-xs opacity-60 mt-1">3 nodes, 18/20 pods</p> */}
                   </div>
                   <div className="bg-white/10 rounded-lg p-4 backdrop-blur-sm">
                     <p className="text-sm mb-2 opacity-80">Pipeline Status</p>
@@ -90,6 +95,6 @@ export function About() {
           </motion.div>
         </div>
       </div>
-    </section>
+    </motion.section>
   )
 }
