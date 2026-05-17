@@ -4,7 +4,7 @@ import { cv } from '../data/cv'
 
 export function Footer() {
   return (
-    <footer className="bg-gray-50 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 py-8">
+    <footer className="bg-gray-50 bg-white/80 dark:bg-gray-900/80 border-t border-gray-200 dark:border-gray-700 py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4">
         <p className="text-sm text-gray-600 dark:text-gray-400">
           © {new Date().getFullYear()} {cv.name.first} {cv.name.last} · Built with React & Tailwind

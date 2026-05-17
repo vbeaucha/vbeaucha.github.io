@@ -12,7 +12,7 @@ const gradients: Record<string, string> = {
 
 export function Tutorials() {
   return (
-    <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-800">
+    <section className="py-20 px-4 sm:px-6 lg:px-8">
       <motion.div
         className="max-w-7xl mx-auto"
         initial={{ opacity: 0 }}
